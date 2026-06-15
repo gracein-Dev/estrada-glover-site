@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrada-Glover Gutters | Seamless Gutter Installation &amp; Repair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #23303D;
+    --charcoal-deep: #1A242E;
+    --mist: #5C7A93;
+    --aluminum: #D9DCD6;
+    --paper: #F4F5F2;
+    --amber: #E8A23D;
+    --amber-dark: #C9852A;
+    --forest: #2F4438;
+    --line: #DADDD6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--charcoal);
+    background: var(--paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--charcoal-deep);
+  }
+
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+    line-height: 1;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary {
+    background: var(--amber);
+    color: var(--charcoal-deep);
+  }
+  .btn-primary:hover {
+    background: var(--amber-dark);
+    box-shadow: 0 8px 24px -8px rgba(232,162,61,0.55);
+  }
+  .btn-ghost {
+    background: transparent;
+    border-color: rgba(255,255,255,0.3);
+    color: var(--paper);
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.5);
+  }
+  .btn-dark {
+    background: var(--charcoal-deep);
+    color: var(--paper);
+  }
+  .btn-dark:hover { background: var(--forest); }
+  .btn-small { padding: 11px 20px; font-size: 0.9rem; }
+  .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .btn-block { width: 100%; justify-content: center; border: none; }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    background: var(--charcoal-deep);
+    color: var(--aluminum);
+    font-size: 0.85rem;
+    padding: 9px 0;
+  }
+  .topbar .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .topbar a { text-decoration: none; font-weight: 600; color: var(--amber); }
+  .topbar .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--aluminum);
+  }
+  .topbar .badge::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #6FCF97;
+    display: inline-block;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    background: var(--paper);
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .logo .mark {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: var(--charcoal-deep);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo .mark svg { width: 20px; height: 20px; color: var(--amber); }
+  nav { display: flex; gap: 30px; }
+  nav a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--mist);
+    transition: color 0.15s ease;
+  }
+  nav a:hover { color: var(--charcoal-deep); }
+  .header-actions { display: flex; gap: 12px; align-items: center; }
+  @media (max-width: 760px) {
+    nav { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--charcoal-deep);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0 120px;
+  }
+  /* Signature: diagonal "channel" lines representing gutter flow path */
+  .hero .channel-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .hero .channel-lines svg { width: 100%; height: 100%; }
+  .hero .wrap { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--amber);
+    margin-bottom: 22px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 2px;
+    background: var(--amber);
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6.4vw, 4.6rem);
+    max-width: 16ch;
+    margin-bottom: 22px;
+  }
+  .hero h1 .accent { color: var(--amber); }
+  .hero p.lead {
+    font-size: 1.15rem;
+    color: var(--aluminum);
+    max-width: 48ch;
+    margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 40px;
+  }
+  @media (max-width: 600px) {
+    .hero-stats { grid-template-columns: repeat(2, auto); }
+  }
+  .hero-stats .stat {
+    border-left: 3px solid var(--amber);
+    padding-left: 16px;
+  }
+  .hero-stats .num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--paper);
+  }
+  .hero-stats .label {
+    font-size: 0.85rem;
+    color: var(--mist);
+    margin-top: 4px;
+  }
+
+  /* ---------- Section shared ---------- */
+  section { padding: 90px 0; }
+  .section-head {
+    max-width: 620px;
+    margin-bottom: 52px;
+  }
+  .section-head .eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--mist);
+    margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: clamp(1.9rem, 4.2vw, 2.7rem);
+    margin-bottom: 14px;
+  }
+  .section-head p { color: var(--mist); font-size: 1.05rem; }
+
+  /* ---------- Problem section ---------- */
+  .problem {
+    background: var(--aluminum);
+  }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+  }
+  .problem-card {
+    background: var(--paper);
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid var(--line);
+  }
+  .problem-card .icon {
+    width: 42px; height: 42px;
+    color: var(--mist);
+    margin-bottom: 18px;
+  }
+  .problem-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .problem-card p {
+    color: var(--mist);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Services ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 30px;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    background: var(--paper);
+  }
+  .service-card:hover {
+    border-color: var(--amber);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -16px rgba(35,48,61,0.25);
+  }
+  .service-card .icon {
+    width: 44px; height: 44px;
+    color: var(--amber-dark);
+    margin-bottom: 18px;
+  }
+  .service-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+  .service-card p { color: var(--mist); font-size: 0.95rem; margin-bottom: 16px; }
+  .service-card .link {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--charcoal-deep);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ---------- Process ---------- */
+  .process {
+    background: var(--forest);
+    color: var(--paper);
+  }
+  .process .section-head .eyebrow { color: var(--amber); }
+  .process .section-head p { color: var(--aluminum); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+  }
+  .process-step {
+    position: relative;
+    padding-left: 0;
+  }
+  .process-step .step-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .process-step h3 {
+    color: var(--paper);
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+  .process-step p {
+    color: var(--aluminum);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .gallery-grid .ph {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--aluminum), var(--line));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mist);
+    font-size: 0.8rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px;
+  }
+  @media (max-width: 700px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- Testimonials ---------- */
+  .testimonials {
+    background: var(--aluminum);
+  }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .testimonial-card {
+    background: var(--paper);
+    border-radius: 8px;
+    padding: 28px;
+    border: 1px solid var(--line);
+  }
+  .testimonial-card .stars {
+    color: var(--amber-dark);
+    font-size: 1rem;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+  .testimonial-card p.quote {
+    font-size: 1rem;
+    margin-bottom: 18px;
+    color: var(--charcoal);
+  }
+  .testimonial-card .person {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testimonial-card .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--charcoal-deep);
+    color: var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .testimonial-card .person h4 {
+    font-size: 0.95rem;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--charcoal-deep);
+  }
+  .testimonial-card .person span {
+    font-size: 0.82rem;
+    color: var(--mist);
+  }
+
+  /* ---------- Quote section ---------- */
+  .quote-section {
+    background: var(--charcoal-deep);
+    color: var(--paper);
+  }
+  .quote-section .section-head .eyebrow { color: var(--amber); }
+  .quote-section .section-head p { color: var(--aluminum); }
+
+  .quote-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 820px) {
+    .quote-layout { grid-template-columns: 1fr; }
+  }
+
+  .quote-info-list {
+    list-style: none;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .quote-info-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    color: var(--aluminum);
+    font-size: 0.95rem;
+  }
+  .quote-info-list .icon {
+    width: 20px; height: 20px;
+    color: var(--amber);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  form.quote-form {
+    background: var(--paper);
+    color: var(--charcoal);
+    border-radius: 10px;
+    padding: 36px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 520px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--charcoal-deep);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    background: #fff;
+    color: var(--charcoal);
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: 2px solid var(--amber);
+    outline-offset: 1px;
+    border-color: var(--amber);
+  }
+  .field textarea { resize: vertical; min-height: 90px; }
+
+  .form-note {
+    font-size: 0.82rem;
+    color: var(--mist);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .form-status {
+    display: none;
+    border-radius: 5px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .form-status.visible { display: block; }
+  .form-status.success {
+    background: rgba(111,207,151,0.15);
+    border: 1px solid #6FCF97;
+    color: #2F7A52;
+  }
+  .form-status.error {
+    background: rgba(235,87,87,0.12);
+    border: 1px solid #EB5757;
+    color: #C53030;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--charcoal-deep);
+    color: var(--mist);
+    padding: 50px 0 28px;
+    font-size: 0.9rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+  }
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+  footer .logo { color: var(--paper); margin-bottom: 12px; }
+  footer h3 {
+    color: var(--paper);
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  footer a { text-decoration: none; color: var(--mist); }
+  footer a:hover { color: var(--amber); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.82rem;
+  }
+
+  /* ---------- Sticky mobile call bar ---------- */
+  .mobile-call-bar {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--charcoal-deep);
+    padding: 12px 16px;
+    z-index: 50;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.2);
+    gap: 10px;
+  }
+  .mobile-call-bar .btn { flex: 1; }
+  @media (max-width: 760px) {
+    .mobile-call-bar { display: flex; }
+    body { padding-bottom: 76px; }
+    .header-actions .btn-dark { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="wrap">
+      <span class="badge">Booking now &mdash; spring install slots open</span>
+      <span>Call <a href="tel:+16045550199">(604) 555-0199</a> for a free quote</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="wrap">
+      <a href="#" class="logo">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 6v3a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6M9 12v8M9 20h6"/></svg>
+        </span>
+        Estrada-Glover Gutters
+      </a>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#gallery">Our Work</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#quote">Get a Quote</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+16045550199" class="btn btn-dark btn-small">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (604) 555-0199
+        </a>
+        <a href="#quote" class="btn btn-primary btn-small">Get a Free Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="channel-lines" aria-hidden="true">
+      <svg viewBox="0 0 1200 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E8A23D" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#E8A23D" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M1300 -50 L750 700" stroke="url(#flowGrad)" stroke-width="160" fill="none"/>
+        <path d="M1450 -50 L900 700" stroke="#5C7A93" stroke-opacity="0.12" stroke-width="2" fill="none"/>
+        <path d="M1380 -50 L830 700" stroke="#5C7A93" stroke-opacity="0.08" stroke-width="2" fill="none"/>
+        <path d="M1520 -50 L970 700" stroke="#5C7A93" stroke-opacity="0.08" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wrap">
+      <p class="hero-eyebrow">Seamless Gutters &middot; Surrey &amp; Lower Mainland, BC</p>
+      <h1>Your roofline's first line of defence, <span class="accent">installed right.</span></h1>
+      <p class="lead">Custom-fit seamless gutters, leaf guards, and repairs that keep water moving away from your home &mdash; not into your basement. Free on-site quotes, most installs completed in a single day.</p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn btn-primary">
+          Get a Free Quote
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tel:+16045550199" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call (604) 555-0199
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="num">15+</div>
+          <div class="label">Years installing gutters</div>
+        </div>
+        <div class="stat">
+          <div class="num">1-Day</div>
+          <div class="label">Typical install time</div>
+        </div>
+        <div class="stat">
+          <div class="num">5★</div>
+          <div class="label">Average customer rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="problem">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Why This Matters</p>
+        <h2>What bad gutters actually cost you</h2>
+        <p>Gutters aren't decoration &mdash; they're the system that keeps thousands of gallons of water a year away from your foundation, siding, and landscaping.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 14h6l-1 8 9-13h-6l1-7z"/></svg>
+          <h3>Foundation damage</h3>
+          <p>Overflowing gutters dump water right next to your foundation, leading to cracks and basement leaks over time.</p>
+        </div>
+        <div class="problem-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+          <h3>Fascia &amp; soffit rot</h3>
+          <p>Clogged or sagging gutters trap moisture against your roofline, rotting wood that's expensive to replace.</p>
+        </div>
+        <div class="problem-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2C20 17.5 12 22 12 22z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Landscape erosion</h3>
+          <p>Uncontrolled runoff washes out flower beds, mulch, and soil right where it pools off your roof edge.</p>
+        </div>
+        <div class="problem-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          <h3>Ice dams in winter</h3>
+          <p>Clogged gutters freeze and back up under your shingles, creating leaks that show up inside your home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What We Install &amp; Fix</p>
+        <h2>Built to handle the Lower Mainland's rain</h2>
+        <p>Seamless aluminum gutters formed on-site to your home's exact dimensions &mdash; fewer joints means fewer leaks.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 6v3a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6M9 12v8M9 20h6"/></svg>
+          <h3>Seamless Gutter Installation</h3>
+          <p>Custom-formed aluminum gutters in a range of colours, fitted to your roofline with no seams to leak.</p>
+          <a href="#quote" class="link">Get a quote &rarr;</a>
+        </div>
+        <div class="service-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <h3>Leaf Guard Systems</h3>
+          <p>Stop debris before it gets in. Reduces clogs dramatically and cuts down on how often you need cleaning.</p>
+          <a href="#quote" class="link">Get a quote &rarr;</a>
+        </div>
+        <div class="service-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <h3>Gutter Repairs</h3>
+          <p>Sagging sections, separated seams, and damaged downspouts fixed fast &mdash; often same-week.</p>
+          <a href="#quote" class="link">Get a quote &rarr;</a>
+        </div>
+        <div class="service-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+          <h3>Gutter Cleaning</h3>
+          <p>Routine debris removal to keep water flowing freely &mdash; book a one-time clean or a seasonal plan.</p>
+          <a href="#quote" class="link">Get a quote &rarr;</a>
+        </div>
+        <div class="service-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>
+          <h3>Downspout Extensions</h3>
+          <p>Direct water further from your foundation with extensions, splash blocks, or underground drainage.</p>
+          <a href="#quote" class="link">Get a quote &rarr;</a>
+        </div>
+        <div class="service-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <h3>New Construction &amp; Renos</h3>
+          <p>Working with builders and contractors on full gutter systems for new homes and additions.</p>
+          <a href="#quote" class="link">Get a quote &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How It Works</p>
+        <h2>From call to clean roofline</h2>
+        <p>Most jobs go from first call to finished install in under a week.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="step-num">STEP 01</span>
+          <h3>Tell us about your home</h3>
+          <p>Call or fill out the quote form with your address and what you're noticing &mdash; leaks, sagging, no gutters at all.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">STEP 02</span>
+          <h3>Free on-site estimate</h3>
+          <p>We measure your roofline in person and give you a clear, written price &mdash; no surprises later.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">STEP 03</span>
+          <h3>Seamless gutters formed on-site</h3>
+          <p>Our machine forms your gutters to the exact length needed, right at your home &mdash; no seams, no leaks.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">STEP 04</span>
+          <h3>Installed &amp; cleaned up same day</h3>
+          <p>Most homes are done in a single day, with full clean-up before we leave.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Recent Work</p>
+        <h2>See the difference seamless makes</h2>
+        <p>A sample of recent installs and repairs around Surrey, Delta, Langley, and White Rock.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="ph">Before / After<br>Surrey Bungalow</div>
+        <div class="ph">Leaf Guard<br>Install &mdash; Delta</div>
+        <div class="ph">New Build<br>Langley</div>
+        <div class="ph">Repair &amp; Reseal<br>White Rock</div>
+        <div class="ph">Downspout Reroute<br>Surrey</div>
+        <div class="ph">Full Replacement<br>Cloverdale</div>
+        <div class="ph">Colour-Match Install<br>Fleetwood</div>
+        <div class="ph">Commercial Job<br>Guildford</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="reviews" class="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Client Testimonials</p>
+        <h2>What homeowners say after install</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">None of my gutters leak anymore and they make the whole house look brand new. Quick, clean job from start to finish.</p>
+          <div class="person">
+            <div class="avatar">AG</div>
+            <div>
+              <h4>Alicia Goodman</h4>
+              <span>Surrey, BC</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">The new gutters look fantastic and the crew was in and out in a day. Really happy with the results.</p>
+          <div class="person">
+            <div class="avatar">JB</div>
+            <div>
+              <h4>John Burger</h4>
+              <span>Coquitlam, BC</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">They tracked down every leak point on our old gutters and fixed them properly instead of just patching. Good honest work.</p>
+          <div class="person">
+            <div class="avatar">AS</div>
+            <div>
+              <h4>Arman Singh</h4>
+              <span>Langley, BC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section id="quote" class="quote-section">
+    <div class="wrap">
+      <div class="quote-layout">
+        <div>
+          <p class="eyebrow" style="font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;font-size:0.8rem;margin-bottom:12px;">Get In Touch</p>
+          <h2 style="font-size:clamp(1.9rem,4.2vw,2.7rem);margin-bottom:14px;">Get your free quote</h2>
+          <p>Tell us a bit about your home and what you need &mdash; we'll follow up to book a free on-site estimate.</p>
+          <ul class="quote-info-list">
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Prefer to talk? Call (604) 555-0199 &mdash; we pick up most calls live during business hours.</span>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              <span>info@estradaglovergroup.example &mdash; for general questions and follow-ups.</span>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Serving Surrey, Delta, Langley, White Rock, and Coquitlam, BC.</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="quote-form" id="quoteForm">
+          <div class="form-status" id="formStatus"></div>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="field">
+              <label for="address">Property address</label>
+              <input type="text" id="address" name="address" placeholder="Street, city">
+            </div>
+          </div>
+          <div class="field">
+            <label for="service">What do you need?</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option value="New Gutter Installation">New Gutter Installation</option>
+              <option value="Leaf Guard System">Leaf Guard System</option>
+              <option value="Gutter Repair">Gutter Repair</option>
+              <option value="Gutter Cleaning">Gutter Cleaning</option>
+              <option value="Downspout Work">Downspout Work</option>
+              <option value="New Construction">New Construction / Renovation</option>
+              <option value="Not Sure">Not Sure &mdash; Need Advice</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="details">Anything else we should know?</label>
+            <textarea id="details" name="details" placeholder="e.g. Gutters are sagging on the back of the house and overflowing during heavy rain."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Request My Free Quote</button>
+          <p class="form-note">We respond to most requests within 1 business hour. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="logo">
+            <span class="mark" style="background:rgba(255,255,255,0.06);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 6v3a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6M9 12v8M9 20h6"/></svg>
+            </span>
+            Estrada-Glover Gutters
+          </div>
+          <p style="max-width:34ch;">Seamless gutter installation, leaf guards, repairs, and cleaning for homes across the Lower Mainland.</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#gallery">Our Work</a></li>
+            <li><a href="#quote">Get a Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="tel:+16045550199">(604) 555-0199</a></li>
+            <li><a href="mailto:info@estradaglovergroup.example">info@estradaglovergroup.example</a></li>
+            <li>Surrey, BC &amp; Lower Mainland</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Estrada-Glover Gutters. All rights reserved.</span>
+        <span>Licensed &amp; Insured</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile call/quote bar -->
+  <div class="mobile-call-bar">
+    <a href="tel:+16045550199" class="btn btn-dark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call
+    </a>
+    <a href="#quote" class="btn btn-primary">Get a Quote</a>
+  </div>
+
+  <script>
+    const form = document.getElementById('quoteForm');
+    const statusBox = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // ============================================================
+    // CONFIG: Set this to your deployed API endpoint.
+    // See /api/submit-lead in the project for the backend code.
+    // ============================================================
+    const LEAD_API_ENDPOINT = '/api/submit-lead';
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const payload = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        service: document.getElementById('service').value,
+        details: document.getElementById('details').value,
+        source: 'website-quote-form',
+        page: window.location.href
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      statusBox.className = 'form-status';
+
+      try {
+        const res = await fetch(LEAD_API_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) throw new Error('Request failed');
+
+        statusBox.textContent = "Thanks " + payload.name.split(' ')[0] + " \u2014 we've got your request and will be in touch shortly.";
+        statusBox.classList.add('visible', 'success');
+        form.reset();
+      } catch (err) {
+        // Fallback: open a pre-filled email so the lead is never lost
+        const subject = encodeURIComponent('Quote Request: ' + payload.service);
+        const body = encodeURIComponent(
+          'Name: ' + payload.name + '\n' +
+          'Phone: ' + payload.phone + '\n' +
+          'Email: ' + payload.email + '\n' +
+          'Address: ' + payload.address + '\n' +
+          'Service: ' + payload.service + '\n' +
+          'Details: ' + payload.details
+        );
+        statusBox.textContent = "We couldn't reach our server, so we've opened an email for you instead \u2014 just hit send.";
+        statusBox.classList.add('visible', 'error');
+        window.location.href = `mailto:info@estradaglovergroup.example?subject=${subject}&body=${body}`;
+        form.reset();
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request My Free Quote';
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead Dashboard | Estrada-Glover Gutters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #23303D;
+    --charcoal-deep: #1A242E;
+    --mist: #5C7A93;
+    --aluminum: #D9DCD6;
+    --paper: #F4F5F2;
+    --amber: #E8A23D;
+    --amber-dark: #C9852A;
+    --forest: #2F4438;
+    --line: #DADDD6;
+    --green: #6FCF97;
+    --red: #EB5757;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--charcoal);
+    min-height: 100vh;
+  }
+  h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--charcoal-deep); }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 24px 60px; }
+
+  header.page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  header.page h1 { font-size: 1.6rem; }
+  header.page p { color: var(--mist); font-size: 0.9rem; margin-top: 4px; }
+
+  /* Login gate */
+  .login-gate {
+    max-width: 380px;
+    margin: 100px auto;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 32px;
+    text-align: center;
+  }
+  .login-gate h2 { margin-bottom: 8px; }
+  .login-gate p { color: var(--mist); font-size: 0.9rem; margin-bottom: 20px; }
+  .login-gate input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+  .login-gate button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: var(--charcoal-deep);
+    color: var(--paper);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  .login-gate button:hover { background: var(--forest); }
+  .login-gate .error { color: var(--red); font-size: 0.85rem; margin-top: 10px; display: none; }
+
+  /* Stats */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .stat-card .num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--charcoal-deep);
+  }
+  .stat-card .label {
+    font-size: 0.82rem;
+    color: var(--mist);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+  }
+
+  /* Lead list */
+  .lead-table {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .lead-row {
+    display: grid;
+    grid-template-columns: 1.3fr 1.4fr 1fr 1fr 0.9fr;
+    gap: 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    font-size: 0.92rem;
+  }
+  .lead-row:last-child { border-bottom: none; }
+  .lead-row.head {
+    background: var(--aluminum);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--mist);
+    padding: 12px 20px;
+  }
+  @media (max-width: 800px) {
+    .lead-row { grid-template-columns: 1fr; gap: 6px; }
+    .lead-row.head { display: none; }
+    .lead-row { border-bottom: 2px solid var(--line); padding: 18px 20px; }
+    .lead-row > div::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--mist);
+      margin-bottom: 2px;
+    }
+  }
+
+  .lead-name { font-weight: 600; }
+  .lead-contact a { color: var(--charcoal-deep); text-decoration: none; }
+  .lead-contact a:hover { color: var(--amber-dark); }
+  .lead-contact div { font-size: 0.85rem; }
+
+  .status-select {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    cursor: pointer;
+  }
+  .status-select.new { border-color: var(--amber); color: var(--amber-dark); }
+  .status-select.contacted { border-color: var(--mist); color: var(--mist); }
+  .status-select.booked { border-color: var(--green); color: #2F7A52; }
+  .status-select.closed { border-color: var(--line); color: var(--charcoal); }
+
+  .timestamp { color: var(--mist); font-size: 0.85rem; }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--mist);
+  }
+  .empty-state h3 { margin-bottom: 8px; }
+
+  .refresh-note {
+    font-size: 0.82rem;
+    color: var(--mist);
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .top-actions { display: flex; gap: 10px; }
+  .btn-mini {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 9px 16px;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    background: #fff;
+    cursor: pointer;
+    color: var(--charcoal-deep);
+  }
+  .btn-mini:hover { border-color: var(--amber); }
+</style>
+</head>
+<body>
+
+  <!-- Login gate (shown until token is entered) -->
+  <div class="login-gate" id="loginGate">
+    <h2>Lead Dashboard</h2>
+    <p>Enter your dashboard access code to view incoming quote requests.</p>
+    <input type="password" id="tokenInput" placeholder="Access code">
+    <button onclick="loadDashboard()">View Leads</button>
+    <p class="error" id="loginError">Incorrect code. Try again.</p>
+  </div>
+
+  <!-- Dashboard (hidden until unlocked) -->
+  <div class="wrap" id="dashboard" style="display:none;">
+    <header class="page">
+      <div>
+        <h1>Lead Dashboard</h1>
+        <p>Estrada-Glover Gutters &mdash; incoming quote requests</p>
+      </div>
+      <div class="top-actions">
+        <button class="btn-mini" onclick="loadLeads()">Refresh</button>
+        <button class="btn-mini" onclick="exportCsv()">Export CSV</button>
+      </div>
+    </header>
+
+    <div class="stats-row" id="statsRow"></div>
+
+    <div class="lead-table" id="leadTable">
+      <div class="lead-row head">
+        <div>Name</div>
+        <div>Contact</div>
+        <div>Service</div>
+        <div>Received</div>
+        <div>Status</div>
+      </div>
+      <div id="leadRows"></div>
+    </div>
+
+    <p class="refresh-note">Updates automatically every 60 seconds. New leads also trigger an email notification if configured.</p>
+  </div>
+
+  <script>
+    let TOKEN = '';
+    let currentLeads = [];
+
+    // Try to read token from URL (?token=...) for convenience, or localStorage isn't used
+    // per artifact restrictions — so the token must be entered each visit, or passed via URL.
+    const urlToken = new URLSearchParams(window.location.search).get('token');
+    if (urlToken) {
+      TOKEN = urlToken;
+      loadDashboard();
+    }
+
+    async function loadDashboard() {
+      const input = document.getElementById('tokenInput');
+      if (input && input.value) TOKEN = input.value;
+
+      try {
+        const res = await fetch(`/api/leads?token=${encodeURIComponent(TOKEN)}`);
+        if (res.status === 401) {
+          document.getElementById('loginError').style.display = 'block';
+          return;
+        }
+        if (!res.ok) throw new Error('Failed to load');
+
+        const data = await res.json();
+        currentLeads = data.leads;
+
+        document.getElementById('loginGate').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+
+        renderStats(currentLeads);
+        renderLeads(currentLeads);
+
+        // Auto-refresh every 60s
+        setInterval(loadLeads, 60000);
+      } catch (err) {
+        document.getElementById('loginError').textContent = 'Could not connect. Check setup.';
+        document.getElementById('loginError').style.display = 'block';
+      }
+    }
+
+    async function loadLeads() {
+      try {
+        const res = await fetch(`/api/leads?token=${encodeURIComponent(TOKEN)}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        currentLeads = data.leads;
+        renderStats(currentLeads);
+        renderLeads(currentLeads);
+      } catch (err) {
+        console.error('Refresh failed', err);
+      }
+    }
+
+    function renderStats(leads) {
+      const total = leads.length;
+      const newCount = leads.filter(l => l.status === 'new' || !l.status).length;
+      const booked = leads.filter(l => l.status === 'booked').length;
+      const today = leads.filter(l => {
+        const d = new Date(l.created_at);
+        const now = new Date();
+        return d.toDateString() === now.toDateString();
+      }).length;
+
+      document.getElementById('statsRow').innerHTML = `
+        <div class="stat-card"><div class="num">${total}</div><div class="label">Total Leads</div></div>
+        <div class="stat-card"><div class="num">${today}</div><div class="label">Today</div></div>
+        <div class="stat-card"><div class="num">${newCount}</div><div class="label">Awaiting Follow-up</div></div>
+        <div class="stat-card"><div class="num">${booked}</div><div class="label">Booked</div></div>
+      `;
+    }
+
+    function renderLeads(leads) {
+      const container = document.getElementById('leadRows');
+
+      if (leads.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <h3>No leads yet</h3>
+            <p>Quote requests submitted on the website will show up here automatically.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = leads.map(lead => {
+        const date = new Date(lead.created_at);
+        const dateStr = date.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' }) +
+          ' &middot; ' + date.toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit' });
+        const status = lead.status || 'new';
+
+        return `
+          <div class="lead-row">
+            <div class="lead-name" data-label="Name">
+              ${escapeHtml(lead.name)}
+              ${lead.address ? `<div style="font-size:0.82rem;color:var(--mist);margin-top:2px;">${escapeHtml(lead.address)}</div>` : ''}
+            </div>
+            <div class="lead-contact" data-label="Contact">
+              <div><a href="tel:${escapeHtml(lead.phone)}">${escapeHtml(lead.phone)}</a></div>
+              <div><a href="mailto:${escapeHtml(lead.email)}">${escapeHtml(lead.email)}</a></div>
+            </div>
+            <div data-label="Service">
+              ${escapeHtml(lead.service)}
+              ${lead.details ? `<div style="font-size:0.82rem;color:var(--mist);margin-top:2px;">${escapeHtml(lead.details)}</div>` : ''}
+            </div>
+            <div class="timestamp" data-label="Received">${dateStr}</div>
+            <div data-label="Status">
+              <select class="status-select ${status}" onchange="updateStatus(${lead.id}, this.value, this)">
+                <option value="new" ${status === 'new' ? 'selected' : ''}>New</option>
+                <option value="contacted" ${status === 'contacted' ? 'selected' : ''}>Contacted</option>
+                <option value="booked" ${status === 'booked' ? 'selected' : ''}>Booked</option>
+                <option value="closed" ${status === 'closed' ? 'selected' : ''}>Closed</option>
+              </select>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function updateStatus(id, status, selectEl) {
+      selectEl.className = 'status-select ' + status;
+      try {
+        await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id, status, token: TOKEN })
+        });
+        // Update local copy and stats
+        const lead = currentLeads.find(l => l.id === id);
+        if (lead) lead.status = status;
+        renderStats(currentLeads);
+      } catch (err) {
+        console.error('Failed to update status', err);
+      }
+    }
+
+    function exportCsv() {
+      if (currentLeads.length === 0) return;
+      const headers = ['Name', 'Phone', 'Email', 'Address', 'Service', 'Details', 'Status', 'Received'];
+      const rows = currentLeads.map(l => [
+        l.name, l.phone, l.email, l.address || '', l.service, (l.details || '').replace(/\n/g, ' '), l.status || 'new', l.created_at
+      ]);
+      const csv = [headers, ...rows].map(r => r.map(field => `"${String(field).replace(/"/g, '""')}"`).join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'leads.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // Allow Enter key on token input
+    document.getElementById('tokenInput')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') loadDashboard();
+    });
+  </script>
+
+</body>
+</html>
